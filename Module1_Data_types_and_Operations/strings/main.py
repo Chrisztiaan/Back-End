@@ -1,0 +1,48 @@
+# Do not modify these lines
+__winc_id__ = '71dd124b4a6e4d268f5973db521394ee'
+__human_name__ = 'strings'
+
+# Add your code after this line
+
+# Part 1
+
+# 1
+scorer_0 = "Ruud Gullit"
+scorer_1 = "Marco van Basten"
+
+# 2
+goal_0 = 32
+goal_1 = 54
+
+# 3
+scorers = scorer_0 + ' ' + str(goal_0) + ', ' + scorer_1 + ' ' + str(goal_1)
+# print(scorers)
+
+# 4
+report = f"{scorer_0} scored in the {goal_0}nd minute\n{scorer_1} scored in the {goal_1}th minute"
+# print(report)
+
+# Part 2
+
+# 1
+player = 'Jan Wouters'
+
+# 2
+first_name = player[player.find('Jan'):3]
+# print(first_name)
+
+# 3
+last_name_len = len(player[player.find('Wouters'):11])
+# print(last_name_len)
+
+# 4
+name_short = f"{player[player.find('Jan'):1]}. {player[player.find('Wouters'):11]}"
+# print(name_short)
+
+# 5
+chant = f"{first_name}! " * len(first_name[1:]) + f"{first_name}!"
+#print(chant)
+
+# 6
+good_chant = chant[-1] != ' '
+print(good_chant)
