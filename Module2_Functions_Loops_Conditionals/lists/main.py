@@ -9,8 +9,10 @@ __human_name__ = 'lists'
 film_names = ["Valley of the dolls", "Superman",
               "The accidental tourist", "Lincoln", "Jaws"]  # etc
 
+
 def alphabetical_order(film_names):
     return sorted(film_names)
+
 
 print(alphabetical_order(film_names))
 
@@ -26,11 +28,13 @@ for i in range(len(golden_globes)):
     golden_globes[i] = golden_globes[i].lower()
 # test print(golden_globes)
 
+
 def won_golden_globe(film_name):
     if film_name in golden_globes:
         print(True)
     else:
         print(False)
+
 
 won_golden_globe(film_name)
 
