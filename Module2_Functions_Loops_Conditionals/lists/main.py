@@ -31,20 +31,20 @@ for i in range(len(golden_globes)):
 
 def won_golden_globe(film_name):
     if film_name in golden_globes:
-        print(True)
+        return True
     else:
-        print(False)
+        return False
 
 
-won_golden_globe(film_name)
+print(won_golden_globe(film_name))
 
 
 # 3
 
 johns_list = ["Jaws", "Fahrenheit", "Star Wars: Episode IV - A New Hope", "E.T. the Extra-Terrestrial",
-              'Old is New', "Memoirs of a Geisha", 'With a Little Help from My Friends']  # etc
+              'Old Is New', "Memoirs of a Geisha", 'With a Little Help from My Friends']  # etc
 josephs_albums = ["Fahrenheit", 'The Seventh One', 'Toto XX', 'Falling in Between', '35th Anniversary',
-                  'Toto XIV', 'Old is New', '40 Tours Around the Sun', 'With a Little Help from My Friends']
+                  'Toto XIV', 'Old Is New', '40 Tours Around the Sun', 'With a Little Help from My Friends']
 
 
 def remove_toto_albums(johns_list):
