@@ -64,13 +64,12 @@ list_of_files = cached_files()
 
 
 def find_password(list_of_files):
-    os.chdir(directory)
     for file in list_of_files:
         with open(file) as f:
             for line in f:
                 if "password" in line:
                     split_password = line.split(" ", 1)
-                    print(split_password[1])
+                    return split_password[1]
 
 
-find_password(list_of_files)
+print(find_password(list_of_files))
