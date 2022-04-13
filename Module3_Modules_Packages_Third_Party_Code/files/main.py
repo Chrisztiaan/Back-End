@@ -17,12 +17,11 @@ path = r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Part
 
 def clean_cache():
     os.chdir(
-        "C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files")
+        "C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files"
+    )
     if os.path.isdir(path):
         shutil.rmtree(path)
-        print("Cache Empty")
     os.mkdir("cache")
-    print("Cache Made")
 
 
 clean_cache()
@@ -33,26 +32,27 @@ clean_cache()
 def cache_zip(zip, path):
     with ZipFile(zip, "r") as zipObj:
         zipObj.extractall(path)
-        print("File is unzipped in cache folder")
 
 
-cache_zip(r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\data.zip",
-          r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache")
+cache_zip(
+    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\data.zip",
+    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache",
+)
 
 
 # 3
 
-# Absolute pad maken:
 directory = os.path.abspath(
-    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache")
-
-# Function die een lijst maakt van de files in "cache"
+    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache"
+)
 
 
 def cached_files():
-    file_list = os.listdir(directory)
-    print("List of files made")
-    return file_list
+    cached_files_list = []
+    for path in os.listdir(directory):
+        full_path = os.path.join(directory, path)
+        cached_files_list.append(full_path)
+    return cached_files_list
 
 
 cached_files()
@@ -69,7 +69,8 @@ def find_password(list_of_files):
         with open(file) as f:
             for line in f:
                 if "password" in line:
-                    print(line)
+                    split_password = line.split(" ", 1)
+                    print(split_password[1])
 
 
 find_password(list_of_files)
