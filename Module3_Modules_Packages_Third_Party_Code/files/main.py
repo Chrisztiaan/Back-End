@@ -12,7 +12,7 @@ from zipfile import ZipFile
 # 1
 
 
-path = r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache"
+path = os.path.join(os.getcwd(), "files", "cache")
 
 
 def clean_cache():
@@ -68,8 +68,7 @@ def find_password(list_of_files):
         with open(file) as f:
             for line in f:
                 if "password" in line:
-                    split_password = line.split(" ", 1)
-                    return split_password[1]
+                    return line.replace("password: ", "").rstrip('\n')
 
 
-print(find_password(list_of_files))
+find_password(list_of_files)
