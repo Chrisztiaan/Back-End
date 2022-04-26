@@ -9,18 +9,18 @@ import os
 import shutil
 from zipfile import ZipFile
 
+base_path = os.getcwd()
+files_path = os.path.join(base_path, "files")
+cache_path = os.path.join(base_path, "files", "cache")
+data_path = os.path.join(base_path, "files", "data.zip")
+
 # 1
 
 
-path = os.path.join(os.getcwd(), "files", "cache")
-
-
 def clean_cache():
-    os.chdir(
-        "C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files"
-    )
-    if os.path.isdir(path):
-        shutil.rmtree(path)
+    os.chdir(files_path)
+    if os.path.isdir(cache_path):
+        shutil.rmtree(cache_path)
     os.mkdir("cache")
 
 
@@ -29,22 +29,17 @@ clean_cache()
 # 2
 
 
-def cache_zip(zip, path):
+def cache_zip(zip, cache):
     with ZipFile(zip, "r") as zipObj:
-        zipObj.extractall(path)
+        zipObj.extractall(cache_path)
 
 
-cache_zip(
-    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\data.zip",
-    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache",
-)
+cache_zip(data_path, cache_path)
 
 
 # 3
 
-directory = os.path.abspath(
-    r"C:\\Users\\C.verlaan\Winc\Back-End\\Module3_Modules_Packages_Third_Party_Code\\files\\cache"
-)
+directory = os.path.abspath(cache_path)
 
 
 def cached_files():
@@ -68,7 +63,7 @@ def find_password(list_of_files):
         with open(file) as f:
             for line in f:
                 if "password" in line:
-                    return line.replace("password: ", "").rstrip('\n')
+                    return line.replace("password: ", "").rstrip("\n")
 
 
 find_password(list_of_files)
